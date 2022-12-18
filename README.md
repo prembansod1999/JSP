@@ -138,3 +138,26 @@ EX:
 
 "This is True" is printed as this condition is true if condition is not true nothing is printed.
 ----------------------------------------------------------------------------------------------------------------
+# Error Page in JSP:
+
+To handle Exception in jsp we can use page directory two tags:
+1. isErrorPage = "true" this is set in the pathofErrorPage 
+2. errorPage="pathofErrorPage" this is set in the jsp page where error occured.
+
+Ex:
+
+First.jsp has error occured then add this page directory with errorPage in this as follow:
+
+<%@page errorPage="error.jsp" %>
+
+error.jsp contain is display whenever error occured in First.jsp to show the exception use "exception" variable which is already present.
+
+Ex:
+
+error.jsp
+
+<%@page isErrorPage="true"%>
+<%= exception %>
+
+
+----------------------------------------------------------------------------------------------------------------
