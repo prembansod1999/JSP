@@ -69,3 +69,72 @@ we can print a using the Expression tag as below:
 <%= a %>
 
 ----------------------------------------------------------------------------------------------------------------
+# JSP Directives:
+
+(Directives tag in JSP)
+
+This tags provide direction to deal with jsp pages.
+
+Three types of directive tags are as follow:
+
+# 1. page directive : 
+
+1. this is used to apply changes on all page.
+2. This is used to import packages for the page.
+
+Ex:
+
+<%@page import="java.util.Random, java.io.* %>
+
+----------------------------------------------------------------------------------------------------------------
+
+# 2. include directive
+
+<%@include %>
+
+1. This is used to include another file content.
+
+Ex:
+
+<%@include file="header.jsp" %>
+
+----------------------------------------------------------------------------------------------------------------
+
+# 3. taglib directive
+
+
+1. It is used when we want to use other tag directory in our jsp page.
+2. such as jstl jsp standard tag library or custom library created by user.
+3. Here you need to provide prefix and uri.
+4. prefix means if we want to use taglib tag it can be used by prefix name if prefix="c" then you can use like this as below:
+
+
+To use this library need to add jstl labraries in the /web_inf/lib/ folder
+
+1. jakarta.servlet.jsp.jstl-2.0.0.jar
+2. jakarta.servlet.jsp.jstl-api-2.0.0.jar
+
+This two jars need to be added for Tomcat 10.0.x all versions.
+
+Ex:
+
+<c:set
+	var ="name" value="Prem Bansod"
+>
+</c:set>
+
+1. This will set name "Prem Bansod" to the variable "name".
+2. To print the name use "c:out" tag.
+Ex:
+
+<c:out value="${name}"></c:out>
+
+3. if tag in the jstl is used to test the conditions:
+
+EX:
+
+<c:if test="${3>2}">This is True</c:if>
+
+
+"This is True" is printed as this condition is true if condition is not true nothing is printed.
+----------------------------------------------------------------------------------------------------------------
