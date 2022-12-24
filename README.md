@@ -161,3 +161,16 @@ error.jsp
 
 
 ----------------------------------------------------------------------------------------------------------------
+To handle 404 error page provide this details in the web.xml file
+
+Ex:
+
+for 404 error
+
+<error-page>
+	<error-code>404</error-code>
+	<location>/error.jsp</location>
+</error-page>
+
+Above implementation shows how to handle error code with the response pages.
+----------------------------------------------------------------------------------------------------------------
