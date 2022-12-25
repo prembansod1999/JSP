@@ -174,3 +174,92 @@ for 404 error
 
 Above implementation shows how to handle error code with the response pages.
 ----------------------------------------------------------------------------------------------------------------
+# Custom tag in JSP i.e. User define tag
+
+Steps
+----------------------------------------------------------------------------------------------------------------
+# 1. create TagHandler class
+
+we can implement Tag interface or extends TagSupport class to create TagHandler class.
+
+there are different methods in the TagHandler class but for now use 
+
+public int doStartTag() throws JSPException{
+	
+	//create out object of the JSPWriter using the pageContext.getout() function
+	
+	JspWriter out = pageContext.getout();
+	out.println("<h1>This is First Custom tag</h1>")
+	
+	
+	return SKIP_BODY; //this specify which part of the page need to skip
+}
+
+----------------------------------------------------------------------------------------------------------------
+
+# 2. Create Tag Lib Descriptor (TLD) file:
+
+This store the information about the custom tag.
+
+we need to provide this file in the WEB_INF folder. 
+
+EX:
+
+File name is mylib.tld ".tld" is the extension of this file.
+
+
+<tag>
+	<name>mytag</name> //This is name of the Tag
+	<tag-class>PackageName.ClassName</tag-class> // Package name is pkg and class name is Abc then this is like <tag-class>pkg.Abc</tag-class>
+</tag>
+
+
+Ex:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.1">
+<tlib-version>1.0</tlib-version>
+<tag>
+	<name>mytag</name>
+	<tag-class>tags.TagsHandler</tag-class>
+</tag>
+</taglib>
+
+or
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+<tlib-version>1.0</tlib-version>
+<jsp-version>5.0</jsp-version>
+<tag>
+	<name>mytag</name>
+	<tag-class>tags.TagsHandler</tag-class>
+</tag>
+</taglib>
+
+
+----------------------------------------------------------------------------------------------------------------
+
+# Custom Tag with Attribute
+
+we need to use <attribute> tag in the .tld file
+
+Ex:
+
+<tag>
+	<name>print</name>
+	<tag-class>tags.Print</tag-class>
+	<attribute>
+		<name>number</name>
+		<required>true</required> //This Value must be required
+	</atttribute>
+</tag>
+
+inside .jsp File write like
+
+<t:print number="23"></t:print>
+
+the above tag calls the settor method in the java class 
+
+----------------------------------------------------------------------------------------------------------------
