@@ -1,0 +1,18 @@
+<taglib>
+<tlib-version>1.0</tlib-version>
+<jsp-version>5.0</jsp-version>
+
+<tag>
+	<name>Print</name>
+	<tag-class>tags.Print</tag-class>
+	<attribute>
+		<name>number</name>
+		<required>true</required>
+	</attribute>
+	<attribute>
+		<name>name</name>
+		<required>true</required>
+	</attribute>
+</tag>
+
+</taglib>

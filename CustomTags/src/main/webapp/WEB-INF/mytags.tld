@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+<tlib-version>1.0</tlib-version>
+<jsp-version>5.0</jsp-version>
+<tag>
+	<name>mytag</name>
+	<tag-class>tags.TagsHandler</tag-class>
+</tag>
+</taglib>
