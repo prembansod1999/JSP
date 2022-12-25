@@ -299,3 +299,24 @@ exception of Throwable Class: This is used to print the exception.
 
 
 ----------------------------------------------------------------------------------------------------------------
+
+# Redirect in JSP:
+
+
+We can use sendRedirect method of the response object to redirect to another page or external website
+
+1. To redirect to the Another Page use the below syntax:
+
+i.e.
+
+<%
+	response.sendRedirect("page3.jsp");
+%>
+
+2. Redirect to External website:
+
+<%
+	response.sendRedirect("https://www.google.com");
+%>
+
+----------------------------------------------------------------------------------------------------------------
