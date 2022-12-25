@@ -263,3 +263,39 @@ inside .jsp File write like
 the above tag calls the settor method in the java class 
 
 ----------------------------------------------------------------------------------------------------------------
+# JSP Implicit Objects:
+
+To Print Anything on browser in servlet we need to create object of PrintWriter
+Ex:
+PrintWriter out = response.getWriter();
+
+but now in jsp this out object is directly accesible and it is provided implicitly
+
+This object is of JspWriter Class.
+
+JspWriter out = pageContext.getOut();
+
+but in the JSP we can use this object without declaration in scriptlet tag
+
+Ex:
+
+<%
+
+out.println("Hello Implicit Object")
+
+%>
+
+Similarly we have different Objects such as
+
+out of the JspWriter
+request of the HttpServletRequest
+response of the HttpServletResponse
+config of the ServletConfig
+application of the ServletContext
+session of the HttpSession
+page of the Object Class : It is object of the currunt jsp page. as jsp is converted into servlet.
+pageContext of the PageContext : It is used in scoping page scope, request scope, session scope, application scope.
+exception of Throwable Class: This is used to print the exception.
+
+
+----------------------------------------------------------------------------------------------------------------
